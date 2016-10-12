@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>message</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>公司</string>
+			<key>isSelected</key>
+			<string>1</string>
+			<key>punishMessage</key>
+			<string>请全体员工吃下午茶一次</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>公司</string>
+			<key>punishMessage</key>
+			<string>请全体员工吃水果一次</string>
+			<key>isSelected</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>公司</string>
+			<key>punishMessage</key>
+			<string>在公司群里发一个100元以上的红包</string>
+			<key>isSelected</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>公司</string>
+			<key>punishMessage</key>
+			<string>休息时间给大家表演唱首歌</string>
+			<key>isSelected</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>公司</string>
+			<key>punishMessage</key>
+			<string>休息时间给大家表演跳舞</string>
+			<key>isSelected</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>公司</string>
+			<key>punishMessage</key>
+			<string>给全体同事按摩直到大家满意为止</string>
+			<key>isSelected</key>
+			<string>1</string>
+		</dict>
+	</array>
+</dict>
+</plist>
