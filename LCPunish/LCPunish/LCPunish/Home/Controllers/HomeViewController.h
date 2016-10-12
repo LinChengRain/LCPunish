@@ -7,7 +7,16 @@
 //
 
 #import "LCBaseViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface HomeViewController : LCBaseViewController
+{
+    UILabel             *punishTitle;
+    NSMutableArray      *punishArray;
+    SystemSoundID        *sound;
+}
+
+@property (nonatomic, retain)UILabel *punishTitle;
+@property (nonatomic)SystemSoundID *sound;
 
 @end

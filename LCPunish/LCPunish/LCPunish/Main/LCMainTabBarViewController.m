@@ -39,7 +39,7 @@
     [self addChildViewController:history title:@"历史" normalImage:@"tabbar_message_center" selectImage:@"tabbar_message_center_selected"];
     
     MessageViewController *message = [[MessageViewController alloc] init];
-    [self addChildViewController:message title:@"设置" normalImage:@"tabbar_profile" selectImage:@"tabbar_profile_selected"];
+    [self addChildViewController:message title:@"信息" normalImage:@"tabbar_profile" selectImage:@"tabbar_profile_selected"];
     
 }
 
