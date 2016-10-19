@@ -17,6 +17,8 @@
 
 #import "DataOperationTool.h"
 
+#import "LCNoDataStateView.h"
+
 @interface HistoryViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger currentCount;//当前数组中元素个数
@@ -33,7 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     
     //加载视图
     [self initSubviews];
@@ -84,22 +85,33 @@
         [self.tableView reloadData];
     }
 }
--(NSMutableArray*)dataArray
-{
-    if (_dataArray == nil) {
-        _dataArray = [NSMutableArray arrayWithCapacity:0];
-    }
-    return _dataArray;
-}
+//-(NSMutableArray*)dataArray
+//{
+//    if (_dataArray == nil) {
+//        _dataArray = [NSMutableArray arrayWithCapacity:0];
+//    }
+//    return _dataArray;
+//}
 #pragma mark - Draw UI
 - (void )initSubviews
 {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     [self.view addSubview:self.tableView];
+    
+    
+    //KVO
+    [self addObserver:self
+           forKeyPath:@"dataArray"
+              options:NSKeyValueObservingOptionNew
+              context:nil];
+    
+    self.dataArray = [NSMutableArray arrayWithCapacity:0];
 }
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, KSCREEN_WIDTH, KSCREEN_HEIGHT - 64) style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.rowHeight = 100;
@@ -167,9 +179,33 @@
             //删除数据
             [self.dataArray removeObject:model];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+            if (self.dataArray.count == 0) {
+                // 触发kvo
+                NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
+                self.dataArray = arr;
+            }
         }
-        
     }
+}
+#pragma mark-----KVO回调----
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    if (![keyPath isEqualToString:@"dataArray"]) {
+        return;
+    }
+    if ([self.dataArray count] == 0) {
+        //无数据
+        __weak typeof(self) weakSelf = self;
+        [[LCNoDataStateView shareNoDataStateView] showCenterWithSuperView:self.tableView icon:nil iconClicked:^{
+            //图片点击回调
+            [weakSelf.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+        }];
+        return;
+    }
+    //有数据
+    [[LCNoDataStateView shareNoDataStateView] clear];
+    
 }
 
 #pragma mark - FMDB
