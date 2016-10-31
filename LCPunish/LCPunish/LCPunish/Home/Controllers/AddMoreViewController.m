@@ -84,11 +84,11 @@
     
     //3 list
 
-    UIButton *listButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
-    [listButton setTitle:@"成员列表" forState:UIControlStateNormal];
-    [listButton addTarget:self action:@selector(memberListAction)  forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:listButton];
+//    UIButton *listButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
+//    [listButton setTitle:@"成员列表" forState:UIControlStateNormal];
+//    [listButton addTarget:self action:@selector(memberListAction)  forControlEvents:UIControlEventTouchUpInside];
+//    
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:listButton];
 
     
     //4 color
@@ -126,6 +126,7 @@
 -(void)backAction
 {
     [self.navigationController popViewControllerAnimated:YES];
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"pushBackToMessber" object:nil];
 }
 -(void)memberListAction
 {

@@ -26,12 +26,18 @@
 
 #import "PunishMessageModel.h"
 
-#import "AddMoreViewController.h"
+#import "MemberListViewController.h"
+
+#import "PopViewController.h"
+#import "STPopup.h"
 
 @interface HomeViewController ()<LCAlterViewDelegate,WXApiDelegate>{
     
     NSInteger index;       //选中的惩罚索引
     NSString *shareMessage;//要分享的内容
+    
+    STPopupTransitionStyle _transitionStyle;
+    UILabel *_transitionStyleLabel;
 }
 //@property (nonatomic ,strong) OrderDBManager *orderDBmanager;
 @property (nonatomic, strong) LCAlterView *alterView;    //弹窗
@@ -96,7 +102,7 @@
     //2 add
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
     addButton.frame = CGRectMake(0, 0, 40, 40);
-    [addButton setImage:[UIImage imageNamed:@"button_add_white"] forState:UIControlStateNormal];
+    [addButton setImage:[UIImage imageNamed:@"tabbar_profile_highlighted"] forState:UIControlStateNormal];
     //    [addButton setTitle:@"添加" forState:UIControlStateNormal];
     [addButton addTarget:self action:@selector(addBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:addButton];
@@ -143,8 +149,8 @@
 #pragma mark - ClickAction
 -(void)addBtnAction:(id)sender{
     
-    AddMoreViewController *addMoreVC = [[AddMoreViewController alloc] init];
-    [self.navigationController pushViewController:addMoreVC animated:YES];
+    MemberListViewController *memberVC = [[MemberListViewController alloc] init];
+    [self.navigationController pushViewController:memberVC animated:YES];
 }
 
 #pragma mark - 摇晃
@@ -201,10 +207,32 @@
         
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);//振动效果
         
-        [self performSelector:@selector(alterAction) withObject:nil afterDelay:2];
+        [self performSelector:@selector(showPopup) withObject:nil afterDelay:2];
     }
 }
-
+- (void)showPopup
+{
+    PopViewController *pop = [PopViewController new];
+    //传递数据
+    NSDictionary *dic = punishArray[index];
+    pop.messageStr = dic[@"punishMessage"];
+    pop.dataArray = [self setUpDatasource];
+    
+    STPopupController *popupController = [[STPopupController alloc] initWithRootViewController:pop];
+    popupController.cornerRadius = 4;
+    popupController.transitionStyle = _transitionStyle;
+    [popupController presentInViewController:self];
+}
+- (void)transitionStyleSwitchDidChange:(UISwitch *)transitionStyleSwitch
+{
+    _transitionStyle = transitionStyleSwitch.on ? STPopupTransitionStyleFade : STPopupTransitionStyleSlideVertical;
+    [self updateTransitionStyleLabel];
+}
+- (void)updateTransitionStyleLabel
+{
+    _transitionStyleLabel.text = _transitionStyle == STPopupTransitionStyleSlideVertical ? @"Slide Vertical" : @"Fade";
+}
+/*
 - (void)alterAction
 {
     NSDictionary *dic = punishArray[index];
@@ -221,7 +249,7 @@
     NSLog(@"%@==%@",punishArray[index],dic[@"punishMessage"]);
     //    NSLog(@"成员名单%@",array);
 }
-
+*/
 #pragma mark - LCAlterViewDelegate
 
 /**
@@ -312,6 +340,11 @@
     NSLog(@"messageArr---%ld",messageArr.count);
     
     return messageArr;
+}
+- (NSArray *)setUpDatasource{
+    
+    NSArray *array = [DataOperationTool queryTableWithTableName:MEMBER_TABLE where:nil];
+    return array;
 }
 #pragma mark - Time
 -(NSString*)currentTime{

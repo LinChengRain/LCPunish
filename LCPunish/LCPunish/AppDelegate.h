@@ -15,5 +15,7 @@
 @property float autoSizeScaleX;
 
 @property float autoSizeScaleY;
+
+@property (nonatomic , assign) NSInteger firstLoad;
 @end
 
