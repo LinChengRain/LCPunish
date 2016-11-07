@@ -39,7 +39,7 @@
     //3
     self.button = [UIButton buttonWithType:UIButtonTypeCustom];
     self.button.frame = CGRectMake(SCREEN_WIDTH - 38,34, 20, 22);
-    [self.button setImage:[UIImage imageNamed:@"button_delete_white"] forState:UIControlStateNormal];
+    [self.button setImage:[UIImage imageNamed:@"cell_delete"] forState:UIControlStateNormal];
     [self.button addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.contentView addSubview:self.button];

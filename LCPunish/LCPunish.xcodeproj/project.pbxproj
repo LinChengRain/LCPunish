@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B36E49E1DD0746300C0B611 /* cell_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B36E49D1DD0746300C0B611 /* cell_delete@2x.png */; };
 		C337B74A1DADE4ED006D561E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C337B7491DADE4ED006D561E /* main.m */; };
 		C337B74D1DADE4ED006D561E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C337B74C1DADE4ED006D561E /* AppDelegate.m */; };
 		C337B7551DADE4ED006D561E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C337B7541DADE4ED006D561E /* Assets.xcassets */; };
@@ -18,8 +19,6 @@
 		C337B7901DADE894006D561E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C337B78F1DADE894006D561E /* HomeViewController.m */; };
 		C337B7931DADE8A1006D561E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C337B7921DADE8A1006D561E /* MessageViewController.m */; };
 		C337B79A1DADE8D6006D561E /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C337B7991DADE8D6006D561E /* HistoryViewController.m */; };
-		C337B7BB1DADE99B006D561E /* button_delete_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C337B79B1DADE99B006D561E /* button_delete_white@2x.png */; };
-		C337B7BC1DADE99B006D561E /* button_delete_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C337B79C1DADE99B006D561E /* button_delete_white@3x.png */; };
 		C337B7BD1DADE99B006D561E /* Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = C337B79D1DADE99B006D561E /* Selected.png */; };
 		C337B7BE1DADE99B006D561E /* Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = C337B79E1DADE99B006D561E /* Unselected.png */; };
 		C337B7BF1DADE99B006D561E /* tabbar_profile_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C337B79F1DADE99B006D561E /* tabbar_profile_highlighted@2x.png */; };
@@ -127,6 +126,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B36E49D1DD0746300C0B611 /* cell_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_delete@2x.png"; sourceTree = "<group>"; };
 		C337B7451DADE4ED006D561E /* LCPunish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCPunish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C337B7491DADE4ED006D561E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C337B74B1DADE4ED006D561E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,8 +150,6 @@
 		C337B7921DADE8A1006D561E /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		C337B7981DADE8D6006D561E /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		C337B7991DADE8D6006D561E /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
-		C337B79B1DADE99B006D561E /* button_delete_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_delete_white@2x.png"; sourceTree = "<group>"; };
-		C337B79C1DADE99B006D561E /* button_delete_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_delete_white@3x.png"; sourceTree = "<group>"; };
 		C337B79D1DADE99B006D561E /* Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Selected.png; sourceTree = "<group>"; };
 		C337B79E1DADE99B006D561E /* Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unselected.png; sourceTree = "<group>"; };
 		C337B79F1DADE99B006D561E /* tabbar_profile_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_highlighted@2x.png"; sourceTree = "<group>"; };
@@ -509,8 +507,7 @@
 		C337B7851DADE7EE006D561E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				C337B79B1DADE99B006D561E /* button_delete_white@2x.png */,
-				C337B79C1DADE99B006D561E /* button_delete_white@3x.png */,
+				7B36E49D1DD0746300C0B611 /* cell_delete@2x.png */,
 				C337B79D1DADE99B006D561E /* Selected.png */,
 				C337B79E1DADE99B006D561E /* Unselected.png */,
 				C337B79F1DADE99B006D561E /* tabbar_profile_highlighted@2x.png */,
@@ -847,7 +844,6 @@
 				C337B7C81DADE99B006D561E /* tabbar_home_selected@3x.png in Resources */,
 				C337B7D61DADE99B006D561E /* Down@2x.png in Resources */,
 				C337B7CC1DADE99B006D561E /* tabbar_message_center_highlighted@3x.png in Resources */,
-				C337B7BC1DADE99B006D561E /* button_delete_white@3x.png in Resources */,
 				C337B7BE1DADE99B006D561E /* Unselected.png in Resources */,
 				C337B7CB1DADE99B006D561E /* tabbar_message_center_highlighted@2x.png in Resources */,
 				C337B7D51DADE99B006D561E /* close_icon@2x.png in Resources */,
@@ -863,6 +859,7 @@
 				C3632DF01DAE0A5000DF1287 /* MBProgressHUD.bundle in Resources */,
 				C337B7C91DADE99B006D561E /* tabbar_home@2x.png in Resources */,
 				C337B7C71DADE99B006D561E /* tabbar_home_selected@2x.png in Resources */,
+				7B36E49E1DD0746300C0B611 /* cell_delete@2x.png in Resources */,
 				C337B7C41DADE99B006D561E /* tabbar_profile@3x.png in Resources */,
 				C337B7C61DADE99B006D561E /* tabbar_home_highlighted@3x.png in Resources */,
 				C337B7BD1DADE99B006D561E /* Selected.png in Resources */,
@@ -872,7 +869,6 @@
 				C337B7C51DADE99B006D561E /* tabbar_home_highlighted@2x.png in Resources */,
 				C337B7C21DADE99B006D561E /* tabbar_profile_selected@3x.png in Resources */,
 				C3632DF31DAE0A5000DF1287 /* read_me.txt in Resources */,
-				C337B7BB1DADE99B006D561E /* button_delete_white@2x.png in Resources */,
 				C337B7D81DADE99B006D561E /* ShakeHideImg_women@2x.png in Resources */,
 				C337B7D11DADE99B006D561E /* 1.mp3 in Resources */,
 			);
